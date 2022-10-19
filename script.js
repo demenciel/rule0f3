@@ -31,26 +31,12 @@ $(huile).keyup(function() {
     $(result).text(huileRounded + '$');
 });
 
-$(mecheNormal).keyup(function() {
-    var moulePrice = parseFloat($(moule).val());
-    var cirePrice = parseFloat($(cire).val()) * 159.69 / 45;
-    var huilePrice = parseFloat($(huile).val()) * 23.09 / 250;
-    var mecheNormalPrice = parseFloat($(mecheNormal).val()) * 15.75 / 100;
-
-    errorMeche();
-
-    var mecheNormalResult = moulePrice + cirePrice + huilePrice + mecheNormal
-    var mecheNormalRounded = Math.round(mecheNormalResult * 100) / 100;
-    $(result).text(mecheNormalRounded + '$');
-});
-
 $(meche).keyup(function () {
     var moulePrice = parseFloat($(moule).val());
     var cirePrice = parseFloat($(cire).val()) * 159.69 / 45;
     var mechePrice = parseFloat($(meche).val()) * 80.09 / 100;
     var huilePrice = parseFloat($(huile).val()) * 23.09 / 250;
 
-    errorMeche();
 
     var resultPrice = moulePrice + cirePrice + mechePrice + huilePrice;
     var resultRounded = Math.round(resultPrice * 100) / 100;
@@ -58,10 +44,21 @@ $(meche).keyup(function () {
     $(result).text(resultRounded + '$');
 });
 
+$(mecheNormal).keyup(function() {
+    var moulePrice = parseFloat($(moule).val());
+    var cirePrice = parseFloat($(cire).val()) * 159.69 / 45;
+    var huilePrice = parseFloat($(huile).val()) * 23.09 / 250;
+    var mecheNormalPrice = parseFloat($(mecheNormal).val()) * 15.75 / 100;
+
+    var mecheNormalResult = moulePrice + cirePrice + huilePrice + mecheNormalPrice
+    var mecheNormalRounded = Math.round(mecheNormalResult * 100) / 100;
+    $(result).text(mecheNormalRounded + '$');
+});
+
 
 
 function errorMeche() {
-    if ($(meche).val() != "" && $(mecheNormal).val() != "") {
+    if ($(meche).val() != 0 && $(mecheNormal).val() != "") {
         setTimeout(function() {
             window.location.reload();
         }, 2200);
