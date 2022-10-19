@@ -53,21 +53,19 @@ $(mecheNormal).keyup(function() {
     var mecheNormalResult = moulePrice + cirePrice + huilePrice + mecheNormalPrice
     var mecheNormalRounded = Math.round(mecheNormalResult * 100) / 100;
     $(result).text(mecheNormalRounded + '$');
+
+});
+
+$('.btn').click(()=> {
+    $('.error-message').css('display', 'flex');
+    setTimeout(() => {
+        window.location.reload()
+    }, 1200);
 });
 
 
 
-function errorMeche() {
-    if ($(meche).val() != 0 && $(mecheNormal).val() != "") {
-        setTimeout(function() {
-            window.location.reload();
-        }, 2200);
-        $('.error-message').css('display', 'flex');
-        $('.input-data').css('opacity', '0.1');
-        $('.result').css('opacity', '0.1');
-        
-    }
-}
+
 
 
 
